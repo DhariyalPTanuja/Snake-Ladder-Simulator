@@ -22,9 +22,17 @@ class Player extends SnakeLadderSimulator{
     int startng_position = 0;
     Player(){
         setThePosion( );
+        int dieNumber = rollDie();
+        writer.println(" die number = " + dieNumber);
     }
     public void setThePosion( ){
         writer.println(" starting postion of Player1 = " +startng_position );
     }
 
+    public int rollDie(){
+        int dieOutCome = (int) (Math.floor(Math.random() * 6)+1);
+        return dieOutCome;
+    }
+
 }
+
