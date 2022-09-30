@@ -20,6 +20,7 @@ public class SnakeLadderSimulator {
 class Player extends SnakeLadderSimulator{
     int current_postion =0;
     int startng_position = 0;
+    int winning_position = 100;
     Player(){
         setThePosion( );
        // int dieNumber = rollDie();
@@ -35,25 +36,35 @@ class Player extends SnakeLadderSimulator{
         return dieOutCome;
     }
     public void checkPlayOption() {
-        int randomDieNumber = rollDie();
-        System.out.println(randomDieNumber);
-        int checkNumber = (int)(Math.floor(Math.random() *2 )+ 1);
-        System.out.println(checkNumber);
-        switch (checkNumber) {
-            case 0:
-                System.out.println("No move Player stay in the same position");
-                current_postion = current_postion + 0;
-                break;
-            case 1:
-                System.out.println(" move ahead");
-                current_postion = current_postion + randomDieNumber ;
-                break;
-            case 2:
-                System.out.println(" move behind");
-                current_postion = current_postion - randomDieNumber ;
-                break;
+        while(current_postion != winning_position) {
+            int randomDieNumber = rollDie();
+            System.out.println("Die number = " + randomDieNumber);
+            int checkNumber = (int) (Math.floor(Math.random() * 3) );
+            System.out.println("movement number = " +checkNumber);
+            switch (checkNumber) {
+                case 0:
+                    System.out.println("No move Player stay in the same position");
+                    current_postion = current_postion + 0;
+                    System.out.println("Player postion = " + current_postion);
+                    break;
+                case 1:
+                    System.out.println(" move ahead");
+                    current_postion = current_postion + randomDieNumber;
+                    System.out.println("Player postion = " + current_postion);
+                    break;
+                case 2:
+                    System.out.println(" move behind");
+                    current_postion = current_postion - randomDieNumber;
+                    System.out.println("Player postion = " + current_postion);
+                    break;
+            }
+            if (current_postion <= 0){
+                
+                current_postion = 0;
+            }
         }
-        System.out.println("postion = " + current_postion);
+        System.out.println("Player winning postion = " + current_postion);
     }
+
 }
 
