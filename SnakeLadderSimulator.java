@@ -43,25 +43,27 @@ class Player extends SnakeLadderSimulator{
             System.out.println("movement number = " +checkNumber);
             switch (checkNumber) {
                 case 0:
-                    System.out.println("No move Player stay in the same position");
-                    current_postion = current_postion + 0;
+                        System.out.println("No move Player stay in the same position");
                     System.out.println("Player postion = " + current_postion);
                     break;
                 case 1:
-                    System.out.println(" move ahead");
-                    current_postion = current_postion + randomDieNumber;
+                        System.out.println(" move ahead");
+                        current_postion = current_postion + randomDieNumber;
+                    if (current_postion > 100 )
+                        current_postion = current_postion - randomDieNumber;
                     System.out.println("Player postion = " + current_postion);
                     break;
                 case 2:
-                    System.out.println(" move behind");
-                    current_postion = current_postion - randomDieNumber;
+                        System.out.println(" move behind");
+                        current_postion = current_postion - randomDieNumber;
+                    if (current_postion < 0 )
+                        current_postion = 0;
                     System.out.println("Player postion = " + current_postion);
                     break;
             }
-            if (current_postion <= 0){
-                
-                current_postion = 0;
-            }
+
+
+
         }
         System.out.println("Player winning postion = " + current_postion);
     }
