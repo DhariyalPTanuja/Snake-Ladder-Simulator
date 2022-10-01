@@ -36,11 +36,13 @@ class Player extends SnakeLadderSimulator{
         return dieOutCome;
     }
     public void checkPlayOption() {
+        int move = 0;
         while(current_postion != winning_position) {
             int randomDieNumber = rollDie();
             System.out.println("Die number = " + randomDieNumber);
             int checkNumber = (int) (Math.floor(Math.random() * 3) );
             System.out.println("movement number = " +checkNumber);
+
             switch (checkNumber) {
                 case 0:
                         System.out.println("No move Player stay in the same position");
@@ -62,10 +64,11 @@ class Player extends SnakeLadderSimulator{
                     break;
             }
 
-
+            move++;
 
         }
         System.out.println("Player winning postion = " + current_postion);
+        System.out.println("Number of moves to win = " + move);
     }
 
 }
